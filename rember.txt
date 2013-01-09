@@ -1,0 +1,3 @@
+svn checkout https://yiistudio.googlecode.com/svn/trunk/ yiistudio --username ljc6qx@gmail.com
+
+nt4vK7ea2ZJ2

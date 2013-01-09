@@ -1,0 +1,225 @@
+@CHARSET "UTF-8";
+body {
+    font: 14px arial;
+    color: #333;
+    background: #fff
+}
+
+body, p, form, input, ul, li {
+    margin: 0;
+    padding: 0
+}
+
+ul {
+    list-style: none
+}
+
+input {
+    padding: 0;
+    border: 0;
+    font-size: 14px
+}
+
+a {
+    color: #03c;
+    text-decoration: underline
+}
+
+#login {
+    padding: 0 5px 0 34px
+}
+
+#pass_login_p_generalerror_0 {
+    clear: both
+}
+
+.pass_login_p_username, .pass_login_p_password, .pass_login_p_phoneNumber {
+    height: 47px
+}
+
+.pass_login_input_username, .pass_login_input_password, .pass_login_input_verifycode, .pass_login_input_phoneNumber {
+    width: 280px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    color: #333;
+    background: url(http://s1.bdstatic.com/r/www/cache/user/img/login3.png) repeat-x 0 -117px;
+    padding: 5px 6px;
+    vertical-align: middle;
+    outline: none
+}
+
+/*label*/
+.pass_login_label_username, .pass_login_label_password, .pass_login_label_phoneNumber {
+    vertical-align: middle;
+    padding: 0 9px 0 20px
+}
+
+/*验证label*/
+.pass_login_label_verifycode {
+    padding: 0 9px 0 20px
+}
+
+/*验证input*/
+.pass_login_input_verifycode {
+    width: 93px
+}
+
+/*记住我的登录状态p*/
+.pass_login_p_rem {
+    font-size: 13px;
+    padding-left: 71px;
+    margin-top: -9px;
+    _margin-top: -6px;
+    clear: both
+}
+
+/*使用公用电脑请勿选择该项p*/
+.pass_login_p_des {
+    display: none
+}
+
+/*记住我的登录状态label*/
+.pass_login_label_rem {
+    vertical-align: middle;
+    margin-left: 5px
+}
+
+/*记住我的登录状态input*/
+.pass_login_input_rem {
+    color: #666;
+    vertical-align: middle
+}
+
+/*忘记密码*/
+.pass_login_a_fgtpwd {
+    font-size: 12px;
+    margin-left: 18px
+}
+
+/*验证码*/
+.pass_login_p_img_verifycode, .pass_login_p_verifycode {
+    height: 39px;
+    *height: 47px;
+    display: inline-block;
+    vertical-align: middle;
+    float: left
+}
+
+/*看不清*/
+.pass_login_change_verifycode {
+    font-size: 13px;
+    color: #00c;
+    text-decoration: underline;
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.pass_login_verifycode {
+    width: 75px;
+    height: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    border: 1px solid #ccc
+}
+
+/*登录*/
+.pass_login_p_btn {
+    height: 51px;
+    padding-left: 71px;
+    margin-top: 20px
+}
+
+/*登录button*/
+.pass_login_input_submit {
+    width: 97px;
+    height: 34px;
+    color: #fff;
+    background: url(http://s1.bdstatic.com/r/www/cache/user/img/login3.png);
+    vertical-align: middle
+}
+
+.pass_login_input_submit_hover {
+    background-position: 0 -39px
+}
+
+.pass_login_input_submit_down {
+    background-position: 0 -78px
+}
+
+/*隐藏pass自带的提示*/
+.pass_login_err {
+    display: none
+}
+
+#pass_login_p_generalerror_0, #pass_login_p_generalerror_1 {
+    display: none
+}
+
+.login_input_hover {
+    border: 1px solid #ababab
+}
+
+.login_input_focus {
+    border: 1px solid #387BC9
+}
+
+.login_input_err {
+    border: 1px solid #da1111
+}
+
+.login_tab {
+    width: 294px;
+    height: 34px;
+    border-bottom: 1px solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+    margin-left: 71px
+}
+
+.login_tab li {
+    width: 105px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    border: 1px solid #d4d4d4;
+    border-left: none;
+    background: #f4f4f4;
+    float: left;
+    position: relative;
+    margin-bottom: -1px;
+    cursor: pointer
+}
+
+.login_tab li.curr {
+    font-weight: bold;
+    background: #fff;
+    border-bottom: 1px solid #fff
+}
+
+.login_tab li.hover {
+    background: #fafafa
+}
+
+.reg_holder {
+    color: #676767;
+    font-size: 12px;
+    padding: 13px 0 0 71px
+}
+
+.reg_line {
+    height: 1px;
+    overflow: hidden;
+    background: url(http://s1.bdstatic.com/r/www/cache/user/img/login3.png) repeat-x 0 -155px
+}
+
+.err_holder {
+    height: 32px;
+    font-size: 12px;
+    line-height: 32px;
+    color: #da1111;
+    padding-left: 71px
+}
+
+#reg_btn {
+    margin-left: 6px
+}
