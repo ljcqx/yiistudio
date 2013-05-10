@@ -1,16 +1,5 @@
 SET FOREIGN_KEY_CHECKS=0;
 
---drop table if exists `tbl_lookup`;
---drop table if exists `tbl_user`;
---drop table if exists `tbl_post`;
---drop table if exists `tbl_comment`;
---drop table if exists `tbl_tag`;
-
---drop table if exists `tbl_assignments`;
---drop table if exists `tbl_itemchild`;
---drop table if exists `tbl_item`;
---drop table if exists `tbl_admin`;
---drop table if exists `tbl_group`;
 
 CREATE TABLE IF NOT EXISTS tbl_lookup
 (

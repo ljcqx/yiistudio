@@ -1,0 +1,14 @@
+---如果是InnoDB引擎，插入数据时，SET AUTOCOMMIT=0,插入完成后再SET AUTOCOMMIT=1 这样会让数据插入更快速
+SET FOREIGN_KEY_CHECKS=0; 会暂时取消主外键的约束检查，同样，最后也设置为1
+
+--drop table if exists `tbl_lookup`;
+--drop table if exists `tbl_user`;
+--drop table if exists `tbl_post`;
+--drop table if exists `tbl_comment`;
+--drop table if exists `tbl_tag`;
+
+--drop table if exists `tbl_assignments`;
+--drop table if exists `tbl_itemchild`;
+--drop table if exists `tbl_item`;
+--drop table if exists `tbl_admin`;
+--drop table if exists `tbl_group`;
