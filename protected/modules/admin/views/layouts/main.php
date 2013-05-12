@@ -42,11 +42,11 @@ Yii::app()->clientScript->registerCoreScript('jui');
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'主页', 'url'=>array('/admin/default/index')),
-				array('label'=>'关于', 'url'=>array('/admin/default/page', 'view'=>'about')),
-				array('label'=>'联系', 'url'=>array('/admin/default/contact')),
-				array('label'=>'登录', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'主页', 'url'=>array('/admin/public/index')),
+				array('label'=>'关于', 'url'=>array('/admin/public/page', 'view'=>'about')),
+				array('label'=>'联系', 'url'=>array('/admin/public/contact')),
+				array('label'=>'登录', 'url'=>array('/admin/public/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'退出 ('.Yii::app()->user->name.')', 'url'=>array('/admin/public/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->

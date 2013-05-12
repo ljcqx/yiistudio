@@ -10,6 +10,7 @@ class RegisterForm extends CFormModel
     public $email;
     public $password;
     public $repassword;
+    //public $mobile;
     public $verifyCode;
 
 
@@ -18,6 +19,7 @@ class RegisterForm extends CFormModel
         return array(
             array('username, email, password, repassword, verifyCode', 'required'),
             array('email', 'email'),
+            //array('mobile','numerical'),//如果是数字的话
             array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
         );
     }

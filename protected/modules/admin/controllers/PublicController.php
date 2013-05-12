@@ -13,7 +13,7 @@ class PublicController extends Controller
         if(Yii::app()->user->isGuest){
             $this->redirect(array('admin/public/login'));
         }else{
-            $this->renderPartial('index');
+            $this->render('index');
         }
 	}
 
@@ -63,13 +63,18 @@ class PublicController extends Controller
      */
     public function actionLogin()
     {
-        $model=new LoginForm;
+        $model=new AdminLoginForm;
 
         // if it is ajax validation request
         if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
         {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+
+        //if user already login return home
+        if(!Yii::app()->user->isGuest){
+            $this->redirect(Yii::app()->user->returnUrl);
         }
 
         // collect user input data

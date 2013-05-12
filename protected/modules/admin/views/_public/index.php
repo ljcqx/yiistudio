@@ -22,10 +22,10 @@ $cs->registerScriptFile($baseUrl.'/js/jquery.tooltip-1.2.6.min.js');
 <frameset rows="64,*" cols="*" frameborder="0" border="0" framespacing="0">
     <frame src="<?php echo Yii::app()->request->baseUrl;?>/index.php/admin/public/top" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" />
     <frameset cols="200,*" frameborder="0" border="0" framespacing="0">
-        <frame src="<?php echo Yii::app()->request->baseUrl;?>/index.php/admin/public/left" scrolling="no" noresize="noresize" id="leftFrame" />
-        <frame src="<?php echo Yii::app()->request->baseUrl;?>/index.php/admin/public/main" name="mainFrame" id="mainFrame"/>
-    </frameset>
+<frame src="<?php echo Yii::app()->request->baseUrl;?>/index.php/admin/public/left" scrolling="no" noresize="noresize" id="leftFrame" />
+<frame src="<?php echo Yii::app()->request->baseUrl;?>/index.php/admin/public/main" name="mainFrame" id="mainFrame"/>
+</frameset>
 </frameset>
 <noframes><body>
-</body>
+    </body>
 </noframes></html>

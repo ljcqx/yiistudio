@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `tbl_role` (
   role_label varchar(50) not null,
   role_access varchar(255) not null,
   remark varchar(50) not null,
-  pid tinyint not null default 0
+  pid tinyint not null default 0,
   level tinyint default 0,
   create_time int not null default 0,
   update_time int not null default 0,
@@ -229,7 +229,7 @@ VALUES
 --    
 -- 限制表 `tbl_coverage`    
 --    
---ALTER TABLE `tbl_coverage` ADD CONSTRAINT `coverage_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `tbl_coverage` (`id`) ON DELETE CASCADE;
+#ALTER TABLE `tbl_coverage` ADD CONSTRAINT `coverage_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `tbl_coverage` (`id`) ON DELETE CASCADE;
 
 
 SET FOREIGN_KEY_CHECKS=1;

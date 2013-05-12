@@ -9,6 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 	'language'=>'zh_cn',
+    //'source_language'=>'zh_cn',
     'timezone'=> 'PRC',// or Asia/Shanghai
 
     'defaultController'=>'site',//默认控制器site
