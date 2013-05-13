@@ -71,21 +71,6 @@
  * @property string $baseUrl The relative URL for the application.
  * @property string $homeUrl The homepage URL.
  *
- * @property IAuthManager $authManager The authorization manager component.
- * @property CAssetManager $assetManager The asset manager component.
- * @property CHttpSession $session The session component.
- * @property CWebUser $user The user session information.
- * @property CWebUser $admin The admin session information.
- * @property IViewRenderer $viewRenderer The view renderer.
- * @property CClientScript $clientScript The client script manager.
- * @property IWidgetFactory $widgetFactory The widget factory.
- * @property CThemeManager $themeManager The theme manager.
- * @property CTheme $theme The theme used currently. Null if no theme is being used.
- * @property string $controllerPath The directory that contains the controller classes. Defaults to 'protected/controllers'.
- * @property string $viewPath The root directory of view files. Defaults to 'protected/views'.
- * @property string $systemViewPath The root directory of system view files. Defaults to 'protected/views/system'.
- * @property string $layoutPath The root directory of layout files. Defaults to 'protected/views/layouts'.
- *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @version $Id$
  * @package system.base
@@ -300,6 +285,7 @@ abstract class CApplication extends CModule
 	/**
 	 * Sets the root directory that holds all third-party extensions.
 	 * @param string $path the directory that contains all third-party extensions.
+     * @throws CException
 	 */
 	public function setExtensionPath($path)
 	{
