@@ -7,7 +7,6 @@ yiistudio
 Create a new repository on the command line
 
 touch README.md
-
 git init
 
 git add README.md
@@ -21,5 +20,7 @@ git push -u origin master
 Push an existing repository from the command line
 
 
+
 git remote add origin git@github.com:ljcqx/yiistudio.git
+
 git push -u origin master
