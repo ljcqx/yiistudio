@@ -168,4 +168,25 @@ class UserController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    
+
+    public function actionChangepassword(){
+
+        $model = new ChangepasswordForm();
+
+        if(isset($_POST['ajax']) && $_POST['ajax'] === 'admin-changepassword-form'){
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        if(isset($_POST['Admin'])){
+            $model->attributes=$_POST['Admin'];
+            if($model->validate())
+            {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+        $this->render('changepassword',array('model'=>$model));
+    }
 }

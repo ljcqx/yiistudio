@@ -20,7 +20,7 @@ class UserIdentity extends CUserIdentity
 	public $username;
 	public function authenticate()
 	{
-        //$user=User::model()->find('username=:username',array(':username'=>$this->username));//两种写法
+        //$user=User::model()->find('LOWER(username)=:username',array(':username'=>strtolower($this->username)));//两种写法
         $user = User::model()->find('LOWER(username)=?', array(strtolower(trim($this->username))));
         if($user===null)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
