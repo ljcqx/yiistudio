@@ -11,6 +11,10 @@ SET FOREIGN_KEY_CHECKS=0; 会暂时取消主外键的约束检查，同样，最后也设置为1
 --drop table if exists `tbl_itemchild`;
 --drop table if exists `tbl_item`;
 --drop table if exists `tbl_admin`;
+<<<<<<< HEAD
 --drop table if exists `tbl_group`;
 
 DROP TABLE IF EXISTS `tbl_sync_log`;
+=======
+--drop table if exists `tbl_group`;
+>>>>>>> 319feca4608ba700a102b3be0ec16e0b05fb71b0
