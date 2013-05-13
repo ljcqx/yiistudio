@@ -11,12 +11,15 @@ class AdminController extends Controller
 
 	/**
 	 * @return array action filters
+     * @desc 过滤器配置数组列表 filterAccessControl、filterPostOnly
 	 */
 	public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+            //将postOnly过滤器应用于edit和create动作（这是基于方法的过滤器）‘-’ 表示除了；使用加减号，我们可指定哪些动作应该或不应该应用过滤器
+            //'postOnly + edit, create',
+            'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -171,4 +174,31 @@ class AdminController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    
+
+    public function actionChangepassword(){
+
+        $model = new ChangepasswordForm();
+
+        if(isset($_POST['ajax']) && $_POST['ajax'] === 'admin-changepassword-form'){
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        if(isset($_POST['Admin'])){
+            $model->attributes=$_POST['Admin'];
+            if($model->validate())
+            {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+        $this->render('changepassword',array('model'=>$model));
+    }
+
+    public function actionUserinfo(){
+        $model = User::model()->find();
+        var_dump($model->attributes);
+        Yii::app()->end();
+    }
 }

@@ -199,8 +199,7 @@ CREATE TABLE IF NOT EXISTS tbl_role_nav (
 --    
 -- 表的结构 `tbl_coverage`    
 --    
-CREATE TABLE
-IF NOT EXISTS `tbl_coverage` (
+CREATE TABLE IF NOT EXISTS `tbl_coverage` (
 	`id` INT (10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`pid` INT (10) UNSIGNED DEFAULT 0,
 	`coverageName` VARCHAR (100) NOT NULL,
@@ -232,4 +231,188 @@ VALUES
 #ALTER TABLE `tbl_coverage` ADD CONSTRAINT `coverage_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `tbl_coverage` (`id`) ON DELETE CASCADE;
 
 
+
+CREATE TABLE IF NOT EXISTS `tbl_sync_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `local_id` int(11) DEFAULT NULL,
+  `client_device_id` int(11) DEFAULT NULL,
+  `sync_time` int(11) DEFAULT NULL,
+  `method`  text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `author_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_sync_author` (`author_id`),
+  CONSTRAINT `FK_sync_author` FOREIGN KEY (`author_id`) REFERENCES `tbl_tm_users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Table structure for table `tbl_tm_messages` */
+
+DROP TABLE IF EXISTS `tbl_tm_messages`;
+
+CREATE TABLE `tbl_tm_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_user_id` int(11) NOT NULL,
+  `to_user_id` int(11) NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `message` text,
+  `message_read` tinyint(1) NOT NULL,
+  `draft` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_messages_users` (`from_user_id`),
+  KEY `fk_messages_users1` (`to_user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_messages` */
+
+/*Table structure for table `tbl_tm_profile_fields` */
+
+DROP TABLE IF EXISTS `tbl_tm_profile_fields`;
+
+CREATE TABLE `tbl_tm_profile_fields` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `field_group_id` int(3) NOT NULL DEFAULT '0',
+  `varname` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `hint` text,
+  `field_type` varchar(50) NOT NULL,
+  `field_size` int(3) NOT NULL DEFAULT '0',
+  `field_size_min` int(3) NOT NULL DEFAULT '0',
+  `required` int(1) NOT NULL DEFAULT '0',
+  `match` varchar(255) NOT NULL DEFAULT 'value',
+  `range` varchar(255) NOT NULL DEFAULT 'default',
+  `error_message` varchar(255) NOT NULL DEFAULT 'default message',
+  `other_validator` varchar(255) NOT NULL DEFAULT 'default ',
+  `default` varchar(255) NOT NULL DEFAULT 'default val',
+  `position` int(3) NOT NULL DEFAULT '0',
+  `visible` int(1) NOT NULL DEFAULT '0',
+  `editable` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `varname` (`varname`,`visible`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_profile_fields` */
+
+insert  into `tbl_tm_profile_fields`(`id`,`field_group_id`,`varname`,`title`,`hint`,`field_type`,`field_size`,`field_size_min`,`required`,`match`,`range`,`error_message`,`other_validator`,`default`,`position`,`visible`,`editable`) values (1,0,'displayname','Display name',NULL,'VARCHAR',255,0,0,'','','','','',0,1,1),(2,0,'firstname','First name',NULL,'VARCHAR',255,0,1,'','','','','',0,2,1),(3,0,'lastname','Last name',NULL,'VARCHAR',255,0,1,'','','','','',0,2,1),(4,0,'email','Email',NULL,'VARCHAR',255,0,1,'','','','','',0,2,0),(5,0,'gender','Gender',NULL,'VARCHAR',255,0,0,'','Female,Male','','','',0,1,1),(6,0,'birthday','Birthday',NULL,'DATE',20,0,0,'','','','','',0,1,1),(7,0,'about','About',NULL,'TEXT',255,0,0,'','','','','',0,1,1);
+
+/*Table structure for table `tbl_tm_profile_fields_group` */
+
+DROP TABLE IF EXISTS `tbl_tm_profile_fields_group`;
+
+CREATE TABLE `tbl_tm_profile_fields_group` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `group_name` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `position` int(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_profile_fields_group` */
+
+/*Table structure for table `tbl_tm_profiles` */
+
+DROP TABLE IF EXISTS `tbl_tm_profiles`;
+
+CREATE TABLE `tbl_tm_profiles` (
+  `profile_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL DEFAULT '0',
+  `privacy` enum('protected','private','public') NOT NULL,
+  `lastname` varchar(50) NOT NULL DEFAULT '',
+  `firstname` varchar(50) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `about` text,
+  `street` varchar(255) DEFAULT NULL,
+  `displayname` varchar(255) DEFAULT NULL,
+  `gender` int(10) DEFAULT NULL,
+  `birthday` int(10) DEFAULT NULL,
+  PRIMARY KEY (`profile_id`),
+  KEY `fk_profiles_users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_profiles` */
+
+insert  into `tbl_tm_profiles`(`profile_id`,`user_id`,`timestamp`,`privacy`,`lastname`,`firstname`,`email`,`about`,`street`,`displayname`,`gender`,`birthday`) values (1,1,1302661847,'protected','admin','admin','binhbt@lifetimetech.vn','xxxxxxxxx',NULL,'Thanh Binh',1,-282484800),(7,7,0,'protected','thanh binh gd','bui','thanhbinh.gd@gmail.com',NULL,NULL,'thanhbinh.gd@gmail.com',NULL,NULL);
+
+/*Table structure for table `tbl_tm_roles` */
+
+DROP TABLE IF EXISTS `tbl_tm_roles`;
+
+CREATE TABLE `tbl_tm_roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_roles` */
+
+insert  into `tbl_tm_roles`(`id`,`title`,`description`) values (1,'UserCreator','This users can create new Users'),(2,'UserRemover','This users can remove other Users');
+
+/*Table structure for table `tbl_tm_user_has_role` */
+
+DROP TABLE IF EXISTS `tbl_tm_user_has_role`;
+
+CREATE TABLE `tbl_tm_user_has_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_user_has_role` */
+
+insert  into `tbl_tm_user_has_role`(`id`,`user_id`,`role_id`) values (2,35,1);
+
+/*Table structure for table `tbl_tm_user_has_user` */
+
+DROP TABLE IF EXISTS `tbl_tm_user_has_user`;
+
+CREATE TABLE `tbl_tm_user_has_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner_id` int(11) NOT NULL,
+  `child_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_user_has_user` */
+
+/*Table structure for table `tbl_tm_users` */
+
+DROP TABLE IF EXISTS `tbl_tm_users`;
+
+CREATE TABLE `tbl_tm_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `activationKey` varchar(128) NOT NULL DEFAULT '',
+  `createtime` int(10) NOT NULL DEFAULT '0',
+  `lastvisit` int(10) NOT NULL DEFAULT '0',
+  `superuser` int(1) NOT NULL DEFAULT '0',
+  `status` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `status` (`status`),
+  KEY `superuser` (`superuser`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_tm_users` */
+
+insert  into `tbl_tm_users`(`id`,`username`,`password`,`activationKey`,`createtime`,`lastvisit`,`superuser`,`status`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','',0,1303300800,1,1),(3,'binhbt@lifetimetech.vn','87bf66b91ec8bceb0b3e0dea7cb92440','5daa28112cd6f5c6e5680d8435a8418e',1294909926,1303300800,1,1),(7,'thanhbinh.gd@gmail.com','e10adc3949ba59abbe56e057f20f883e','17382305deae52ca2a912a626f5a706e',1302264000,1303128000,0,1);
+
+
+
+CREATE TABLE IF NOT EXISTS tbl_members
+(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(128) NOT NULL,
+	realname VARCHAR(128) NOT NULL,
+	password VARCHAR(128) NOT NULL,
+	salt VARCHAR(128) NOT NULL,
+	email VARCHAR(128) NOT NULL,
+	profile TEXT,
+	group_id INT NOT NULL DEFAULT 0,
+	create_time INT NOT NULL DEFAULT 0,
+	update_time INT NOT NULL DEFAULT 0,
+	active TINYINT NOT NULL DEFAULT 0,
+        status TINYINT NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 SET FOREIGN_KEY_CHECKS=1;
