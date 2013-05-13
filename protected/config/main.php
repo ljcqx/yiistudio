@@ -33,6 +33,7 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		'admin'=>array('class'=>'application.modules.admin.AdminModule'),
+        'user'=>array('class'=>'application.modules.user.UserModule'),
 	),
 
 	// application components
