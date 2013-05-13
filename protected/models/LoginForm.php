@@ -23,8 +23,9 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required','message'=>iconv("gb2312","utf-8","不能为空")),
-            array('username','validatename'),
+			//array('username, password', 'required','message'=>iconv("gb2312","utf-8","不能为空")),
+            array('username, password', 'required'),
+            //array('username','validatename'),
             //array('status', 'in', 'range'=>array(0, 1, 2)),
             //array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
 

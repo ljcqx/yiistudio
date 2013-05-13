@@ -1,5 +1,5 @@
----Èç¹ûÊÇInnoDBÒýÇæ£¬²åÈëÊý¾ÝÊ±£¬SET AUTOCOMMIT=0,²åÈëÍê³ÉºóÔÙSET AUTOCOMMIT=1 ÕâÑù»áÈÃÊý¾Ý²åÈë¸ü¿ìËÙ
-SET FOREIGN_KEY_CHECKS=0; »áÔÝÊ±È¡ÏûÖ÷Íâ¼üµÄÔ¼Êø¼ì²é£¬Í¬Ñù£¬×îºóÒ²ÉèÖÃÎª1
+ï»¿---å¦‚æžœæ˜¯InnoDBå¼•æ“Žï¼Œæ’å…¥æ•°æ®æ—¶ï¼ŒSET AUTOCOMMIT=0,æ’å…¥å®ŒæˆåŽå†SET AUTOCOMMIT=1 è¿™æ ·ä¼šè®©æ•°æ®æ’å…¥æ›´å¿«é€Ÿ
+SET FOREIGN_KEY_CHECKS=0; ä¼šæš‚æ—¶å–æ¶ˆä¸»å¤–é”®çš„çº¦æŸæ£€æŸ¥ï¼ŒåŒæ ·ï¼Œæœ€åŽä¹Ÿè®¾ç½®ä¸º1
 
 drop table if exists `tbl_lookup`;
 drop table if exists `tbl_user`;

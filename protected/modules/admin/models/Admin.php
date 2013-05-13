@@ -114,7 +114,9 @@ class Admin extends CActiveRecord
 	}
 
     /**
-     * Validate of the validity of user password
+     * @param $password
+     * @return bool
+     * @desc Validate of the validity of user password
      * 验证用户密码的有效性
      */
     public function validatePassword($password){
