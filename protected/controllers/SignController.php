@@ -7,7 +7,7 @@
  * version: $Id$
  * FileName: LoginController.php
  */
-class LoginController extends Controller
+class SignController extends Controller
 {
     public function actions()
     {
@@ -40,7 +40,7 @@ class LoginController extends Controller
             $model=new LoginForm;
 
             // if it is ajax validation request
-            if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+            if(isset($_POST['ajax']) && $_POST['ajax']==='sign-form')
             {
                 echo CActiveForm::validate($model);
                 Yii::app()->end();
@@ -55,7 +55,7 @@ class LoginController extends Controller
                     $this->redirect(Yii::app()->user->returnUrl);
             }
             // display the login form
-            $this->renderPartial('index',array('model'=>$model));
+            $this->renderPartial('/user/sign',array('model'=>$model));
         }
     }
 }

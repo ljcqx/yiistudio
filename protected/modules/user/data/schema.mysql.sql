@@ -15,6 +15,7 @@ CREATE TABLE `tbl_users` (
   KEY `superuser` (`superuser`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+/*
 CREATE TABLE `tbl_profiles` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `lastname` varchar(50) NOT NULL DEFAULT '',
@@ -24,6 +25,14 @@ CREATE TABLE `tbl_profiles` (
 
 ALTER TABLE `tbl_profiles`
   ADD CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE;
+*/
+CREATE TABLE `tbl_profiles` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(50) NOT NULL DEFAULT '',
+  `firstname` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `tbl_profiles_fields` (
   `id` int(10) NOT NULL AUTO_INCREMENT,

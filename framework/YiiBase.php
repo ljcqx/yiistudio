@@ -389,6 +389,7 @@ class YiiBase
 	 * This method is provided to be invoked within an __autoload() magic method.
 	 * @param string $className class name
 	 * @return boolean whether the class has been loaded successfully
+	 * @throws CException
 	 */
 	public static function autoload($className)
 	{
