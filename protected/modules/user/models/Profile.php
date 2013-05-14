@@ -15,9 +15,10 @@ class Profile extends UActiveRecord
 
 	/**
 	 * Returns the static model of the specified AR class.
+     * @param string $className
 	 * @return CActiveRecord the static model class
 	 */
-	public static function model($className=__CLASS__)
+    public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
