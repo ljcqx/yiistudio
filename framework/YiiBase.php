@@ -129,7 +129,7 @@ class YiiBase
 
 	/**
 	 * Returns the application singleton, null if the singleton has not been created yet.
-	 * @return CApplication the application singleton, null if the singleton has not been created yet.
+	 * @return CWebApplication the application singleton, null if the singleton has not been created yet.
 	 */
 	public static function app()
 	{
@@ -389,8 +389,9 @@ class YiiBase
 	 * This method is provided to be invoked within an __autoload() magic method.
 	 * @param string $className class name
 	 * @return boolean whether the class has been loaded successfully
+     * @throws CException
 	 */
-	public static function autoload($className)
+    public static function autoload($className)
 	{
 		// use include so that the error PHP file may appear
 		if(isset(self::$classMap[$className]))
