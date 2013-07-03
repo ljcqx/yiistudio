@@ -1,0 +1,7 @@
+{
+	"require":{
+		"monolog/monolog":">1.2.0",
+		"composer/composer":"1.0.0-alpha7",
+		"l3l0/php-travis-client":"dev-master"
+	}
+}

@@ -12,11 +12,11 @@ class SiteController extends Controller
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,//背景颜色
-                'minLength'=>4,//最短为4位
-                'maxLength'=>4,//最长为4位
-                'width'=>100,
-                'height'=>40,
-                'transparent'=>true,//显示为透明，当关闭该选项，才显示背景颜色
+				'minLength'=>4,//最短为4位
+				'maxLength'=>4,//最长为4位
+				'width'=>100,
+				'height'=>40,
+				'transparent'=>true,//显示为透明，当关闭该选项，才显示背景颜色
 			),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
@@ -103,32 +103,60 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
-    /**
-     * Display Sign in Page
-     */
-    public function actionRegister(){
-        if(!Yii::app()->user->isGuest){
-            $this->redirect(Yii::app()->homeUrl);
-        }else{
-            $model = new RegisterForm;
-            //register-form 为Form表单的id
-            if(isset($_POST['ajax']) && $_POST['ajax']==='register-form')
-            {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
-            if(isset($_POST['RegisterForm']))
-            {
-                $model->attributes = $_POST['RegisterForm'];
+	/**
+	 * Display Sign in Page
+	 */
+	public function actionRegister(){
+		if(!Yii::app()->user->isGuest){
+			$this->redirect(Yii::app()->homeUrl);
+		}else{
+			$model = new RegisterForm;
+			//register-form 为Form表单的id
+			if(isset($_POST['ajax']) && $_POST['ajax']==='register-form')
+			{
+				echo CActiveForm::validate($model);
+				Yii::app()->end();
+			}
+			if(isset($_POST['RegisterForm']))
+			{
+				$model->attributes = $_POST['RegisterForm'];
 
-                if($model->validate() && $model->model->login())
-                    $this->redirect(Yii::app()->user->returnUrl);
-            }
-            $this->render('register',array('model'=>$model));
-        }
-    }
+				if($model->validate() && $model->model->login())
+					$this->redirect(Yii::app()->user->returnUrl);
+			}
+			$this->render('register',array('model'=>$model));
+		}
+	}
 
-    /**
+	/**
+	 * @param interger $id
+	 */
+	public function actionForgot($id=NULL){
+		Yii::import('application.extensions.phpmailer.JPhpMailer');
+		$mail = new JPhpMailer();
+		$mail->IsSMTP();	//telling the class to use SMTP
+		$mail->Host = 'smtp.163.com';
+//		$mail->Host = 'smtp.googlemail.com';
+//		$mail->Port = '465';
+//		$mail->SMTPSecure = "ssl";
+//		$mail->SMTPKeepAlive = true;
+//		$mail->Mailer = 'smtp';
+//		$mail->CharSet = 'utf-8';
+//		$mail->SMTPDebug = 0;
+		$mail->SMTPAuth = true;
+		$mail->Username = '13051624281@163.com';
+		$mail->Password = 'feng!@#123';
+		$mail->SetFrom('13051624281@163.com', 'lijicheng');
+		$mail->Subject = 'PHPMailer Test Subject via smtp, basic with authentication';
+		$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
+		$mail->MsgHTML('<h1>JUST A TEST!</h1>');
+		$mail->AddAddress('499018400@qq.com','梦幻星辰');
+		$mail->Send();
+		Yii::app()->user->setFlash('ok','Success');
+		//$this->refresh();
+	}
+
+	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
 	public function actionLogout()
@@ -136,4 +164,36 @@ class SiteController extends Controller
 		Yii::app()->user->logout(false);
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionLogging(){
+		require Yii::app()->basePath.'/vendor/autoload.php';
+		//use Monolog\Logger; // Trait uses are allowed in php5.4 only
+		$log = new Monolog\Logger('name');
+		$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+		$log->addWarning('Foo');
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -152,6 +152,15 @@ return array(
                 'handleMissingTranslation'
             ),
         ),
+
+        // configure gearman
+        'gearman'=>array(
+            'class'=>'ext.Gearman',
+            'servers'=>array(
+                array('host'=>'127.0.0.1', 'port'=>4730),
+                //......
+            ),
+        ),
 	),
 
 	// application-level parameters that can be accessed

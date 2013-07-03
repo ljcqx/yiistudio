@@ -11,6 +11,7 @@ class TestController extends Controller
     $j->width = 100;//调用setWidth,解除绑定的事件showChange*/
 
     function showChange(){
+    	Yii::app()->theme->baseUrl;
         echo 'change me';
     }
 
