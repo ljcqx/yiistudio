@@ -2,7 +2,7 @@
 
 return CMap::mergeArray(
 	require(dirname(__FILE__).'/main.php'),
-    require(dirname(__FILE__).'/database.php'),
+	require(dirname(__FILE__).'/database.php'),
 	array(
 		'components'=>array(
 			'fixture'=>array(
