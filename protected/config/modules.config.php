@@ -1,6 +1,7 @@
 <?php
 return array(
 	'modules' => array(
-		'menubuilder',
+		'user'=>array('class'=>'application.modules.user.UserModule'),
+		'menubuilder' => array(),
 	),
 );

@@ -34,7 +34,6 @@ $mainconfig = array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		'admin'=>array('class'=>'application.modules.admin.AdminModule'),
-		'user'=>array('class'=>'application.modules.user.UserModule'),
 	),
 
 	// application components
@@ -45,18 +44,7 @@ $mainconfig = array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
-		
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'showScriptName' =>false,
-			'caseSensitive' =>true,//对大小写敏感
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
-		),
+
 		/*
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/lingyun.db',
@@ -171,6 +159,7 @@ $mainconfig = array(
 
 return CMap::mergeArray(
 	require(dirname(__FILE__).'/database.php'),
+	require(dirname(__FILE__).'/router.php'),
 	require(dirname(__FILE__).'/modules.config.php'),
 	require(dirname(__FILE__).'/extensions.config.php'),
 	$mainconfig
